@@ -13,7 +13,7 @@ export default function Index(props: HomeTemplateProps) {
 
 // 3 tipos:
 // getStaticProps => gerar estático em build time
-// getServerSideProps => gerar via ssr (server side rendering) a cada request (nunca vai para o bunde do client (arquico JS menor))
+// getServerSideProps => gerar via ssr (server side rendering) a cada request (nunca vai para o bundle do client (arquivo JS menor))
 // getInitialProps => gerar via ssr a cada request (vai para o client, faz hydrate do lado do client depois do primeiro request)
 
 export async function getStaticProps() {
