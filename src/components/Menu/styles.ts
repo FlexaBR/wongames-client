@@ -94,7 +94,6 @@ export const MenuFull = styled.nav<MenuFullProps>`
     z-index: ${theme.layers.menu};
     top: 0;
     bottom: 0;
-    left: 0;
     right: 0;
     height: 100vh;
     overflow: hidden;

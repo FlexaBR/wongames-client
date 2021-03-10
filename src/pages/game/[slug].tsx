@@ -43,7 +43,7 @@ export async function getStaticPaths() {
     params: { slug }
   }))
 
-  return { paths, fallback: true }
+  return { paths, fallback: true } // fallback: as outras paginas, depois das 9 (limit: 9), serão geradas na hora do acesso.
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -53,7 +53,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     QueryGameBySlugVariables
   >({
     query: QUERY_GAME_BY_SLUG,
-    variables: { slug: `${params?.slug}` }
+    variables: { slug: `${params?.slug}` },
+    fetchPolicy: 'no-cache'
   })
 
   if (!data.games.length) {
@@ -75,10 +76,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   >({ query: QUERY_UPCOMING, variables: { date: TODAY } })
 
   return {
+    revalidate: 10,
     props: {
-      revalidate: 60,
       cover: `http://localhost:1337${game.cover?.src}`,
       gameInfo: {
+        id: game.id,
         title: game.name,
         price: game.price,
         description: game.short_description

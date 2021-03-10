@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/test-utils'
 
 import Banner from '.'
 
@@ -16,7 +15,7 @@ describe('<Banner />', () => {
     // verifique se o title existe renderizado (.toBeInTheDocument())
     // verifique se o subtitle existe renderizado
     // verifique se a imagem existe renderizado
-    const { container } = renderWithTheme(<Banner {...props} />)
+    const { container } = render(<Banner {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /Defy death/i })
@@ -32,7 +31,7 @@ describe('<Banner />', () => {
   })
 
   it('should render a Ribbon', () => {
-    renderWithTheme(
+    render(
       <Banner
         {...props}
         ribbon="My Ribbon"

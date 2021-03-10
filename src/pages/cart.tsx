@@ -13,9 +13,12 @@ export default function CartPage(props: CartProps) {
 }
 
 export async function getServerSideProps() {
+  //getServerSideProps: sempre que entrar nesta pagina vai ao servidor pegar os dados
+
   const apolloClient = initializeApollo()
 
   const { data } = await apolloClient.query<QueryRecommended>({
+    //utilizando o apolo pega primeiro do cache
     query: QUERY_RECOMMENDED
   })
 
