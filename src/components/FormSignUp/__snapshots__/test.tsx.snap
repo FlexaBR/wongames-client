@@ -33,6 +33,13 @@ exports[`<FormSignUp /> should render the form 1`] = `
   border: 0;
   outline: none;
   width: 100%;
+  width: 100%;
+}
+
+.c5:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #EAEAEA inset;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c3 {
@@ -143,9 +150,9 @@ exports[`<FormSignUp /> should render the form 1`] = `
         </div>
         <input
           class="c5"
-          name="name"
-          placeholder="Name"
-          type="name"
+          name="username"
+          placeholder="Username"
+          type="text"
           value=""
         />
       </div>
@@ -180,7 +187,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
           class="c5"
           name="email"
           placeholder="Email"
-          type="email"
+          type="text"
           value=""
         />
       </div>
@@ -262,7 +269,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         </div>
         <input
           class="c5"
-          name="confirm-password"
+          name="confirm_password"
           placeholder="Confirm password"
           type="password"
           value=""
@@ -271,9 +278,12 @@ exports[`<FormSignUp /> should render the form 1`] = `
     </div>
     <button
       class="c6 c7"
+      type="submit"
     >
       <span>
-        Sign up now
+        <span>
+          Sign up now
+        </span>
       </span>
     </button>
     <div
@@ -289,4 +299,4 @@ exports[`<FormSignUp /> should render the form 1`] = `
     </div>
   </form>
 </div>
-`;
+`

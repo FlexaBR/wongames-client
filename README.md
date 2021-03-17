@@ -1,7 +1,7 @@
 
 yarn test --watch
 
-yarn upgrade-interactive --latest
+yarn upgrade-interactive --latest (atualizar as dependencias)
 
 yarn generate Base
 
