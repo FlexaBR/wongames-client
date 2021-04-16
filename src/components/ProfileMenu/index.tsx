@@ -36,7 +36,7 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
       </S.Link>
     </Link>
 
-    <S.Link role="button" onClick={() => signOut()}>
+    <S.Link role="button" onClick={() => signOut({ callbackUrl: '/' })}>
       <ExitToApp size={24} title="Sign out" />
       <span>Sign out</span>
     </S.Link>
