@@ -13,6 +13,7 @@ export const Wrapper = styled.article`
 
 export const ImageBox = styled.a`
   height: 14rem;
+  position: relative;
   width: 100%;
   background: #f6f7f8;
   background-image: linear-gradient(
@@ -82,6 +83,7 @@ export const FavButton = styled.div`
     right: -1rem;
     top: -0.5rem;
     cursor: pointer;
+
     svg {
       width: 2.5rem;
     }

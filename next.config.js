@@ -7,6 +7,9 @@ module.exports = withPWA({
     dest: 'public',
     disable: !isProd
   },
+  images: {
+    domains: ['localhost', 'res.cloudinary.com'] // aula 532
+  },
   future: {
     webpack5: true
   }

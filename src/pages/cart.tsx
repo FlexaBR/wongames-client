@@ -5,17 +5,17 @@ import { gamesMapper, highlightMapper } from 'utils/mappers'
 
 import Cart, { CartProps } from 'templates/Cart'
 
-import itemsMock from 'components/CartList/mock'
-import cardsMock from 'components/PaymentOptions/mock'
+import protectedRoutes from 'utils/protected-routes'
+import { GetServerSidePropsContext } from 'next'
 
 export default function CartPage(props: CartProps) {
   return <Cart {...props} />
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   //getServerSideProps: sempre que entrar nesta pagina vai ao servidor pegar os dados
-
-  const apolloClient = initializeApollo()
+  const session = await protectedRoutes(context)
+  const apolloClient = initializeApollo(null, session)
 
   const { data } = await apolloClient.query<QueryRecommended>({
     //utilizando o apolo pega primeiro do cache
@@ -24,9 +24,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      items: itemsMock,
-      total: '$ 430,00',
-      cards: cardsMock,
+      session,
       recommendedTitle: data.recommended?.section?.title,
       recommendedGames: gamesMapper(data.recommended?.section?.games),
       recommendedHighlight: highlightMapper(
